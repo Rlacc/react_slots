@@ -1,0 +1,32 @@
+.custom-border {
+  border: 3px solid #777b80;
+  border-radius: 5px;
+  height: 75%;
+}
+
+.emoji {
+  font-size: 6.5vw;
+  margin: -1vw;
+}
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("./fonts/scoreboard.ttf") format("truetype");
+}
+
+.scoreboard-font {
+  font-family: "CustomFont", scoreboard;
+  color: aliceblue;
+}
+
+.output-box {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+body {
+  background-color: blue;
+}
+
+.slot-background {
+  background-color: rgba(0, 0, 0, 0.85);
+}
