@@ -3,6 +3,8 @@ import Row from "./components/rows";
 import Bet from "./components/bet";
 import Output from "./components/output";
 import Header from "./components/header";
+import Rules from "./components/rules";
+
 const App = () => {
   return (
     <>
@@ -30,6 +32,7 @@ const App = () => {
           </div>
         </div>
       </div>
+      <Rules />
     </>
   );
 };
