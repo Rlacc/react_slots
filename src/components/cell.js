@@ -1,9 +1,9 @@
 import React from "react";
 
-const Cell = () => {
+const Cell = ({ symbol }) => {
   return (
     <div className="col-2 d-flex justify-content-center align-items-center">
-      <p className="emoji">🍪</p>
+      <p className="emoji">{symbol}</p>
     </div>
   );
 };

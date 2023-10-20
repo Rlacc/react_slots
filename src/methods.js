@@ -56,16 +56,6 @@ const Symbols = Object.freeze({
     rangeEnd: 1000,
   },
 });
-const symbolCounts = {
-  ELF: 0,
-  TREE: 0,
-  SNOWMAN: 0,
-  SANTA: 0,
-  MRSCLAUS: 0,
-  BELL: 0,
-  COOKIE: 0,
-  REINDEER: 0,
-};
 
 const generateRandomSymbol = () => {
   const randomNum = Math.floor(Math.random() * 1000) + 1;
@@ -94,21 +84,60 @@ const generateBoard = () => {
   return board;
 };
 
-const checkWin = (symbolCounts) => {
+const winningSymbols = (symbolCounts) => {
   const keys = Object.keys(symbolCounts);
-
+  let winningSyms = [];
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const curr = symbolCounts[key];
     if (curr >= 6) {
-      return true;
-    } else {
-      return false;
+      winningSyms.push(key);
     }
   }
+  return winningSyms;
 };
 
-const winningSymbols = (board) => {};
+const generateCounts = (board) => {
+  const symbolCounts = {
+    "🧝": 0,
+    "🎄": 0,
+    "⛄": 0,
+    "🎅": 0,
+    "🧑‍🎄": 0,
+    "🔔": 0,
+    "🍪": 0,
+    "🦌": 0,
+  };
 
-const generateCounts = (board) => {};
-export default generateBoard;
+  for (let row = 0; row < board.length; row++) {
+    for (let col = 0; col < board[0].length; col++) {
+      const sym = board[row][col];
+      symbolCounts[sym] += 1;
+    }
+  }
+
+  return symbolCounts;
+};
+
+const calculateWin = (winningSyms) => {
+  let multi = 0;
+  if (winningSyms.length === 0) {
+    return 0;
+  }
+  const keys = Object.keys(Symbols);
+  for (let i = 0; i < winningSyms.length; i++) {
+    const sym = winningSyms[i];
+
+    for (let j = 0; j < keys.length; j++) {
+      const key = keys[j];
+      const curr = Symbols[key];
+      if (curr.symbol === sym) {
+        multi += curr.multiplier;
+      }
+    }
+  }
+  return multi;
+};
+
+const methods = { generateCounts, generateBoard, winningSymbols, calculateWin };
+export default methods;

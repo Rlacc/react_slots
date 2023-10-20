@@ -3,13 +3,14 @@ import Game from "./game";
 import Output from "./output";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import generateBoard from "../methods";
+import methods from "../methods";
 
 const Machine = () => {
-  const defaultBoard = generateBoard();
+  const defaultBoard = methods.generateBoard();
   const [board, setBoard] = useState(defaultBoard);
   const [bet, setBet] = useState(0);
   const [balance, setBalance] = useState(1000);
+  const [winAmount, setWinAmount] = useState(0);
   const betRef = useRef(null);
 
   const handleSpin = () => {
@@ -17,8 +18,19 @@ const Machine = () => {
     setBet(betAmount);
     if (betAmount >= 0.01 && balance >= betAmount) {
       setBalance(balance - betAmount);
-      const newBoard = generateBoard();
+      const newBoard = methods.generateBoard();
       setBoard(newBoard);
+      const counts = methods.generateCounts(newBoard);
+      const winningSyms = methods.winningSymbols(counts);
+      const winMultiplier = methods.calculateWin(winningSyms);
+      const win = Math.round(winMultiplier * betAmount);
+      console.log(winMultiplier);
+      if (win == 0) {
+        setWinAmount(0);
+      } else {
+        setWinAmount(win);
+        setBalance(balance + win);
+      }
     } else {
       alert(
         "Please check your bet amount. You may not have enough balance or you are betting below the minimum."
@@ -29,7 +41,7 @@ const Machine = () => {
   return (
     <>
       <Game board={board} />
-      <Output />
+      <Output winAmount={winAmount} />
       <div className="row">
         <div className="container-fluid col-6">
           <div className="row">
