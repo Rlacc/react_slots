@@ -21,7 +21,8 @@ const Rules = () => {
           </Modal.Header>
           <Modal.Body>
             <h4 className="text-center">
-              Six or more symbols on the screen multiplies bet!
+              Six or more symbols on the screen multiplies bet! Multipliers
+              stack!
             </h4>
             <hr></hr>
             <ul>

@@ -23,8 +23,7 @@ const Machine = () => {
       const counts = methods.generateCounts(newBoard);
       const winningSyms = methods.winningSymbols(counts);
       const winMultiplier = methods.calculateWin(winningSyms);
-      const win = Math.round(winMultiplier * betAmount);
-      console.log(winMultiplier);
+      const win = Number((winMultiplier * betAmount).toFixed(2));
       if (win == 0) {
         setWinAmount(0);
       } else {
