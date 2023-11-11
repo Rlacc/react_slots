@@ -1,72 +1,88 @@
 const Symbols = Object.freeze({
   ELF: {
     symbol: "🧝",
-    chance: 0.25,
-    multiplier: 0.6,
+    chance: 0.15,
+    multiplier: 0.5,
     rangeStart: 1,
-    rangeEnd: 250,
+    rangeEnd: 225,
   },
   TREE: {
     symbol: "🎄",
-    chance: 0.2,
-    multiplier: 0.8,
-    rangeStart: 251,
-    rangeEnd: 450,
+    chance: 0.13,
+    multiplier: 0.6,
+    rangeStart: 226,
+    rangeEnd: 425,
   },
   SNOWMAN: {
     symbol: "⛄",
-    chance: 0.175,
-    multiplier: 0.95,
-    rangeStart: 451,
-    rangeEnd: 625,
+    chance: 0.11,
+    multiplier: 0.75,
+    rangeStart: 426,
+    rangeEnd: 595,
   },
   SANTA: {
     symbol: "🎅",
-    chance: 0.15,
-    multiplier: 1.1,
-    rangeStart: 626,
-    rangeEnd: 775,
+    chance: 0.09,
+    multiplier: 1,
+    rangeStart: 596,
+    rangeEnd: 735,
   },
   BELL: {
     symbol: "🔔",
-    chance: 0.1,
-    multiplier: 1.75,
-    rangeStart: 776,
-    rangeEnd: 875,
+    chance: 0.07,
+    multiplier: 1.5,
+    rangeStart: 736,
+    rangeEnd: 850,
   },
   COOKIE: {
     symbol: "🍪",
-    chance: 0.075,
-    multiplier: 2.25,
-    rangeStart: 876,
-    rangeEnd: 950,
+    chance: 0.05,
+    multiplier: 2,
+    rangeStart: 851,
+    rangeEnd: 940,
   },
   REINDEER: {
     symbol: "🦌",
-    chance: 0.035,
-    multiplier: 4,
-    rangeStart: 951,
-    rangeEnd: 985,
+    chance: 0.03,
+    multiplier: 3,
+    rangeStart: 941,
+    rangeEnd: 990,
   },
   MRSCLAUS: {
     symbol: "🧑‍🎄",
-    chance: 0.01,
+    chance: 0.02,
+    multiplier: 5,
+    rangeStart: 991,
+    rangeEnd: 1190,
+  },
+  PRESENT: {
+    symbol: "🎁",
+    chance: 0.015,
+    multiplier: 7,
+    rangeStart: 1191,
+    rangeEnd: 1340,
+  },
+  MILK: {
+    symbol: "🥛",
+    chance: 0.005,
     multiplier: 10,
-    rangeStart: 986,
-    rangeEnd: 1000,
+    rangeStart: 1341,
+    rangeEnd: 1500,
   },
 });
 
 const generateRandomSymbol = () => {
-  const randomNum = Math.floor(Math.random() * 1000) + 1;
+  const randomNum = Math.floor(Math.random() * 1500) + 1;
+  console.log("Generated Number:", randomNum);
+  const keys = Object.keys(Symbols); // gets all of they keys of the Symbol object/ dictionary
 
-  const keys = Object.keys(Symbols);
-
+  // iterates through each key. Each key returns a value (curr) which contains the information aobut that specfic symbol.
+  // Here we check if the number selected is in the range of each symbol
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const curr = Symbols[key];
     if (randomNum >= curr.rangeStart && randomNum <= curr.rangeEnd) {
-      return curr.symbol;
+      return curr.symbol; // if its in the range we return the emoji associated with that symbol
     }
   }
 };
