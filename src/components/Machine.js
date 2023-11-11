@@ -1,8 +1,6 @@
 import React, { useState, useRef } from "react";
 import Game from "./game";
 import Output from "./output";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import methods from "../methods";
 
 const Machine = () => {
