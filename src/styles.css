@@ -1,12 +1,24 @@
-.custom-border {
-  border: 3px solid #777b80;
-  border-radius: 5px;
-  height: 75%;
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  background: url("images/winter-wonderland.jpeg");
+  background-size: cover;
+  overflow: auto;
+  height: 100%;
 }
 
-.emoji {
-  font-size: 6.5vw;
-  margin: -1vw;
+.custom-border {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 3px solid #777b80;
+  border-radius: 5px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @font-face {
@@ -17,20 +29,96 @@
 .scoreboard-font {
   font-family: "CustomFont", scoreboard;
   color: aliceblue;
+  font-size: 3vw;
 }
 
-.output-box {
-  background-color: rgba(0, 0, 0, 0.85);
-}
-body {
-  overflow: hidden;
-  margin: 0;
-  height: 100vh;
+.custom-row {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle, lightblue, deepskyblue);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.slot-background {
+.header-text {
+  font-size: 3vw;
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slot-cell {
+  font-size: 6.5vw;
+  margin: -1vh;
+}
+
+.betting-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vw;
+}
+
+.balance-display {
+  background-color: grey;
+  color: white;
+  size: 10vw;
+}
+
+.custom-input-group {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: grey;
+  font-size: 2vw;
+}
+
+.input-group-label {
+  margin-right: 10px;
+  white-space: nowrap;
+  color: white;
+}
+
+.custom-form-control {
+  flex-grow: 1; /* Allows the input to grow and fill available space */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px; /* Spacing between input and button */
+}
+
+.custom-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.custom-button:hover {
+  background-color: darkgreen;
+}
+
+.custom-button:active {
+  transform: scale(0.96);
+}
+
+.win-total {
   background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  text-align: center;
+  margin-top: 2vh;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
 }

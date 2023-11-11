@@ -11,10 +11,8 @@ const App = () => {
   return (
     <>
       <Snowfall />
-      <div className="container-fluid">
-        <Header />
-        <Machine />
-      </div>
+      <Header />
+      <Machine />
       <Rules />
     </>
   );

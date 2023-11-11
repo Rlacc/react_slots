@@ -41,27 +41,19 @@ const Machine = () => {
     <>
       <Game board={board} />
       <Output winAmount={winAmount} />
-      <div className="row">
-        <div className="container-fluid col-6">
-          <div className="row">
-            <InputGroup className="mt-1">
-              <InputGroup.Text>Balance: ${balance}</InputGroup.Text>
-              <Form.Control
-                type="number"
-                placeholder="Bet amount"
-                aria-label="Dollar amount (with dot and two decimal places)"
-                ref={betRef}
-              />
-              <button
-                className="btn btn-success"
-                type="button"
-                id="spin-button"
-                onClick={handleSpin}
-              >
-                Spin
-              </button>
-            </InputGroup>
-          </div>
+      <div className="betting-input">
+        <div className="custom-input-group">
+          <span className="input-group-label">Balance: ${balance}</span>
+          <input
+            type="number"
+            className="custom-form-control"
+            placeholder="Bet Amount"
+            aria-label="Bet Amount"
+            ref={betRef}
+          />
+          <button className="custom-button" type="button" onClick={handleSpin}>
+            Spin Me!
+          </button>
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import Cell from "./cell.js";
 const Row = ({ symbols }) => {
   return (
     <>
-      <div className="row">
+      <div className="custom-row">
         <Cell symbol={symbols[0]} />
         <Cell symbol={symbols[1]} />
         <Cell symbol={symbols[2]} />
